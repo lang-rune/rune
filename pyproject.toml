@@ -26,10 +26,10 @@ classifiers = [
 rune = "rune.cli.main:main"
 
 [project.urls]
-Homepage = "https://github.com/kjxcodez/rune-lang"
-Repository = "https://github.com/kjxcodez/rune-lang"
-"Bug Tracker" = "https://github.com/kjxcodez/rune-lang/issues"
-Changelog = "https://github.com/kjxcodez/rune-lang/blob/main/docs/changelog.md"
+Homepage = "https://github.com/lang-rune/rune"
+Repository = "https://github.com/lang-rune/rune"
+"Bug Tracker" = "https://github.com/lang-rune/rune/issues"
+Changelog = "https://github.com/lang-rune/rune/blob/main/docs/changelog.md"
 
 [tool.setuptools.packages.find]
 where = [".."]
