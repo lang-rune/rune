@@ -1,0 +1,51 @@
+# Closures
+# Spells capture the environment in which they are defined.
+# The captured variables are read at call time from the definition scope.
+
+# -- adder factory --
+# make_adder returns a new spell that remembers 'n' from its creation scope.
+spell make_adder(n) {
+    spell add(x) {
+        return x + n
+    }
+    return add
+}
+
+set add5 = make_adder(5)
+set add10 = make_adder(10)
+
+write(add5(3))            # 8
+write(add10(3))           # 13
+write(add5(add10(2)))     # add10(2)=12, add5(12)=17
+
+# -- greeter factory --
+# Each returned spell remembers a different greeting word.
+spell make_greeter(greeting) {
+    spell greet(name) {
+        write(greeting + ", " + name + "!")
+    }
+    return greet
+}
+
+set hello = make_greeter("Hello")
+set hi = make_greeter("Hi")
+set hey = make_greeter("Hey")
+
+hello("Alice")   # Hello, Alice!
+hi("Bob")        # Hi, Bob!
+hey("Carol")     # Hey, Carol!
+hello("Dave")    # Hello, Dave! -- hello still remembers "Hello"
+
+# -- nested scope reading --
+set base = 100
+
+spell make_offset_adder(offset) {
+    spell apply(x) {
+        return base + offset + x   # reads 'base' from global, 'offset' from make_offset_adder
+    }
+    return apply
+}
+
+set adder = make_offset_adder(10)
+write(adder(5))    # 100 + 10 + 5 = 115
+write(adder(20))   # 100 + 10 + 20 = 130

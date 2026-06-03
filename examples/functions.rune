@@ -1,0 +1,49 @@
+# Functions (Spells)
+# Defining, calling, and returning values from spells.
+
+# -- basic spell --
+spell greet(name) {
+    write("Hello,", name)
+}
+
+greet("Alice")
+cast greet("Bob")
+
+# -- return value --
+spell add(a, b) {
+    return a + b
+}
+
+write(add(3, 7))
+write(add(10, add(2, 3)))
+
+# -- spell with condition --
+spell max(a, b) {
+    if a >= b {
+        return a
+    }
+    return b
+}
+
+write("max(4, 9):", max(4, 9))
+write("max(7, 3):", max(7, 3))
+
+# -- recursive spell --
+spell factorial(n) {
+    if n <= 1 {
+        return 1
+    }
+    return n * factorial(n - 1)
+}
+
+count from 1 to 6 as i {
+    write(word(i) + "! = " + word(factorial(i)))
+}
+
+# -- spell as value --
+spell double(x) {
+    return x * 2
+}
+
+set transform = double
+write(transform(21))

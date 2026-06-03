@@ -1,0 +1,37 @@
+# Conditions
+# if, otherwise, and otherwise-chaining.
+
+set score = 85
+
+if score >= 90 {
+    write("Grade: A")
+} otherwise score >= 80 {
+    write("Grade: B")
+} otherwise score >= 70 {
+    write("Grade: C")
+} otherwise score >= 60 {
+    write("Grade: D")
+} otherwise {
+    write("Grade: F")
+}
+
+# Boolean logic
+set x = 7
+if x > 0 and x < 10 {
+    write(x, "is a single digit")
+}
+
+if x == 0 or x > 5 {
+    write(x, "is zero or greater than 5")
+}
+
+# Truthiness
+set name = "Alice"
+if name {
+    write("Name is set:", name)
+}
+
+set total = 0
+if not total {
+    write("total is zero")
+}

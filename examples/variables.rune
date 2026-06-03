@@ -1,0 +1,26 @@
+# Variables
+# Demonstrating all four data types and variable assignment.
+
+set name = "Rune"
+set version = 2
+set active = yes
+set nothing = empty
+
+write("Name:", name)
+write("Version:", version)
+write("Active:", active)
+write("Nothing:", nothing)
+
+# Types
+write("Type of name:", type(name))
+write("Type of version:", type(version))
+write("Type of active:", type(active))
+write("Type of nothing:", type(nothing))
+
+# Reassignment
+set version = version + 1
+write("Updated version:", version)
+
+# String concatenation
+set greeting = "Hello from " + name + " v" + word(version)
+write(greeting)
